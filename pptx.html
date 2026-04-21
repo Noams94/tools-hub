@@ -20,16 +20,14 @@
         padding: 0;
       }
       body {
-        display: flex;
-        flex-direction: column;
         font-family: "Heebo", system-ui, sans-serif;
         background: #faf9f6;
         color: #1a1a1a;
-        height: 100vh;
-        height: 100dvh;
       }
       header {
-        flex: 0 0 auto;
+        position: sticky;
+        top: 0;
+        z-index: 10;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -58,17 +56,13 @@
         margin: 0 6px;
       }
       .frame-wrapper {
-        flex: 1 1 auto;
-        min-height: 0;
         position: relative;
         background: #fff;
-        display: flex;
       }
       iframe {
         border: 0;
         width: 100%;
-        height: 100%;
-        flex: 1;
+        height: 2200px;
         display: block;
       }
       .loading {
@@ -103,7 +97,7 @@
     <div class="frame-wrapper">
       <div class="loading" id="loading">טוען את האפליקציה...</div>
       <iframe
-        src="https://pptx-chart-editor.streamlit.app/"
+        src="https://pptx-chart-editor.streamlit.app/?embed=true"
         title="PPTX Chart Editor"
         allow="clipboard-read; clipboard-write; fullscreen"
         scrolling="auto"
