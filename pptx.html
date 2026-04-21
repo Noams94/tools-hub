@@ -79,6 +79,28 @@
       .loading.hidden {
         display: none;
       }
+      footer.pptx-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        padding: 8px 20px;
+        background: #fff;
+        border-top: 1px solid #e0e6ed;
+        text-align: center;
+        font-size: 12px;
+        color: #64748b;
+        direction: ltr;
+      }
+      footer.pptx-footer a {
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      footer.pptx-footer a:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -105,5 +127,13 @@
         onload="document.getElementById('loading').classList.add('hidden')"
       ></iframe>
     </div>
+    <footer class="pptx-footer">
+      &copy; All Rights Reserved &middot; Dr. Noam Keshet &middot;
+      <a href="https://noamkeshet.com" target="_blank" rel="noopener"
+        >noamkeshet.com</a
+      >
+      &middot;
+      <a href="mailto:keshet.noam@gmail.com">keshet.noam@gmail.com</a>
+    </footer>
   </body>
 </html>
