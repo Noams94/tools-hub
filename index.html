@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>הכלים של נעם</title>
+    <meta name="description" content="אוסף כלים ואפליקציות של נעם קשת" />
+    <meta property="og:title" content="הכלים של נעם" />
+    <meta property="og:description" content="אוסף כלים ואפליקציות של נעם קשת" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tools.noamkeshet.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1a1a1a;
+        --paper: #faf9f6;
+        --subtle: #e7e5e0;
+        --accent: #0f766e;
+        --muted: #6b6b6b;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Heebo", system-ui, sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 48px 24px 96px;
+      }
+      header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 32px;
+        margin-bottom: 40px;
+        border-bottom: 2px solid var(--accent);
+      }
+      header h1 {
+        font-family: "Frank Ruhl Libre", serif;
+        font-size: 44px;
+        font-weight: 700;
+        margin: 0;
+        color: var(--ink);
+      }
+      header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .tool {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 24px;
+        background: #fff;
+        border: 1px solid var(--subtle);
+        border-radius: 12px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+        min-height: 160px;
+      }
+      .tool:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        border-color: var(--accent);
+      }
+      .tool.coming {
+        opacity: 0.55;
+        cursor: default;
+      }
+      .tool.coming:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--subtle);
+      }
+      .tool .icon {
+        font-size: 28px;
+        line-height: 1;
+      }
+      .tool h2 {
+        font-family: "Frank Ruhl Libre", serif;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0;
+      }
+      .tool p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .tool .tag {
+        align-self: flex-start;
+        font-size: 12px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: var(--paper);
+        color: var(--muted);
+        border: 1px solid var(--subtle);
+      }
+      .tool.coming .tag {
+        background: #fff8e6;
+        color: #92400e;
+        border-color: #fed7aa;
+      }
+      .tool.live .tag {
+        background: #e8f5f2;
+        color: var(--accent);
+        border-color: #a7e3d6;
+      }
+      footer {
+        margin-top: 48px;
+        font-size: 13px;
+        color: var(--muted);
+        text-align: center;
+      }
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>הכלים של נעם</h1>
+        <p>אוסף כלים ואפליקציות לניתוח נתונים, סקרים, ודוחות בעברית</p>
+      </header>
+
+      <div class="grid">
+        <a class="tool live" href="https://reports.noamkeshet.com">
+          <div class="icon">📄</div>
+          <div>
+            <h2>בונה דוחות</h2>
+            <p>
+              עורך דוחות בעברית מבוסס בלוקים. תומך בגרפים, טבלאות,
+              מפות, סקרי Likert וייצוא ל-HTML/PDF/Word.
+            </p>
+          </div>
+          <span class="tag">חי</span>
+        </a>
+
+        <div class="tool coming">
+          <div class="icon">🗺️</div>
+          <div>
+            <h2>Settlement Matcher</h2>
+            <p>
+              התאמה מטושטשת של שמות יישובים לאזורי אזעקה, עם פלט
+              Excel צבוע ו-RTL.
+            </p>
+          </div>
+          <span class="tag">בקרוב</span>
+        </div>
+
+        <div class="tool coming">
+          <div class="icon">📊</div>
+          <div>
+            <h2>Survey Dashboard</h2>
+            <p>
+              דשבורד Streamlit לניתוח סקרים: Likert, מפת חום מחוזות,
+              ופילוח דמוגרפי.
+            </p>
+          </div>
+          <span class="tag">בקרוב</span>
+        </div>
+      </div>
+
+      <footer>
+        נבנה על ידי
+        <a href="https://github.com/Noams94" target="_blank" rel="noopener"
+          >Noam Keshet</a
+        >
+        · פרטיות: כל הכלים פועלים בדפדפן שלך
+      </footer>
+    </div>
+  </body>
+</html>
