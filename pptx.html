@@ -16,7 +16,6 @@
       }
       html,
       body {
-        height: 100%;
         margin: 0;
         padding: 0;
       }
@@ -26,16 +25,18 @@
         font-family: "Heebo", system-ui, sans-serif;
         background: #faf9f6;
         color: #1a1a1a;
-        overflow: hidden;
+        height: 100vh;
+        height: 100dvh;
       }
       header {
+        flex: 0 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 20px;
+        padding: 8px 20px;
         background: #fff;
         border-bottom: 1px solid #e7e5e0;
-        font-size: 14px;
+        font-size: 13px;
       }
       header .brand {
         display: flex;
