@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>עורך גרפים ל-PPTX · הכלים של נעם</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: "Heebo", system-ui, sans-serif;
+        background: #faf9f6;
+        color: #1a1a1a;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background: #fff;
+        border-bottom: 1px solid #e7e5e0;
+        font-size: 14px;
+      }
+      header .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+      }
+      header a {
+        color: #0f766e;
+        text-decoration: none;
+      }
+      header a:hover {
+        text-decoration: underline;
+      }
+      .breadcrumb {
+        color: #6b6b6b;
+      }
+      .breadcrumb .sep {
+        margin: 0 6px;
+      }
+      .frame-wrapper {
+        flex: 1;
+        position: relative;
+        background: #fff;
+      }
+      iframe {
+        border: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .loading {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #6b6b6b;
+        pointer-events: none;
+      }
+      .loading.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">📊 עורך גרפים ל-PPTX</div>
+      <div class="breadcrumb">
+        <a href="/">← כל הכלים</a>
+        <span class="sep">·</span>
+        <a
+          href="https://pptx-chart-editor.streamlit.app/"
+          target="_blank"
+          rel="noopener"
+          >פתח בחלון חדש</a
+        >
+      </div>
+    </header>
+    <div class="frame-wrapper">
+      <div class="loading" id="loading">טוען את האפליקציה...</div>
+      <iframe
+        src="https://pptx-chart-editor.streamlit.app/?embed=true"
+        title="PPTX Chart Editor"
+        allow="clipboard-read; clipboard-write; fullscreen"
+        onload="document.getElementById('loading').classList.add('hidden')"
+      ></iframe>
+    </div>
+  </body>
+</html>
