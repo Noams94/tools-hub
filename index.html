@@ -49,6 +49,12 @@
         margin-bottom: 40px;
         border-bottom: 2px solid var(--accent);
       }
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
       header h1 {
         font-family: "Frank Ruhl Libre", serif;
         font-size: 44px;
@@ -60,6 +66,32 @@
         margin: 0;
         color: var(--muted);
         font-size: 18px;
+      }
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0;
+        border: 1px solid var(--subtle);
+        border-radius: 999px;
+        padding: 2px;
+        background: #fff;
+        flex-shrink: 0;
+      }
+      .lang-toggle button {
+        border: 0;
+        background: transparent;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted);
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .lang-toggle button.active {
+        background: var(--accent);
+        color: #fff;
       }
       .grid {
         display: grid;
@@ -147,70 +179,76 @@
   <body>
     <div class="container">
       <header>
-        <h1>הכלים של נעם</h1>
-        <p>אוסף כלים ואפליקציות לניתוח נתונים, סקרים, ודוחות בעברית</p>
+        <div class="header-top">
+          <h1 data-i18n="title">הכלים של נעם</h1>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button type="button" data-lang="he" class="active" aria-pressed="true">עב</button>
+            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+        </div>
+        <p data-i18n="tagline">אוסף כלים ואפליקציות לניתוח נתונים, סקרים, ודוחות בעברית</p>
       </header>
 
       <div class="grid">
         <a class="tool live" href="https://reports.noamkeshet.com">
           <div class="icon">📄</div>
           <div>
-            <h2>בונה דוחות</h2>
-            <p>
+            <h2 data-i18n="report.title">בונה דוחות</h2>
+            <p data-i18n="report.desc">
               עורך דוחות בעברית מבוסס בלוקים. תומך בגרפים, טבלאות,
               מפות, סקרי Likert וייצוא ל-HTML/PDF/Word.
             </p>
           </div>
-          <span class="tag">חי</span>
+          <span class="tag" data-i18n="status.live">חי</span>
         </a>
 
         <a class="tool live" href="/pptx">
           <div class="icon">📊</div>
           <div>
-            <h2>עורך גרפים ל-PPTX</h2>
-            <p>
+            <h2 data-i18n="pptx.title">עורך גרפים ל-PPTX</h2>
+            <p data-i18n="pptx.desc">
               עריכה של גרפים בתוך קבצי PowerPoint (.pptx) —
               עדכון נתונים, תוויות וסגנונות בממשק מבוסס דפדפן.
             </p>
           </div>
-          <span class="tag">חי</span>
+          <span class="tag" data-i18n="status.live">חי</span>
         </a>
 
         <a class="tool live" href="https://oref.noamkeshet.com">
           <div class="icon">🛡️</div>
           <div>
-            <h2>ניטור התרעות פיקוד העורף</h2>
-            <p>
+            <h2 data-i18n="oref.title">ניטור התרעות פיקוד העורף</h2>
+            <p data-i18n="oref.desc">
               דאשבורד עם 157,000+ התרעות היסטוריות מ-2019, עדכון
               חי מ-API של פיקוד העורף, סינון לפי יישוב/תאריך/סוג
               התרעה, מפה אינטראקטיבית וייצוא Excel.
             </p>
           </div>
-          <span class="tag">חי</span>
+          <span class="tag" data-i18n="status.live">חי</span>
         </a>
 
         <div class="tool coming">
           <div class="icon">🗺️</div>
           <div>
-            <h2>Settlement Matcher</h2>
-            <p>
+            <h2 data-i18n="settlement.title">Settlement Matcher</h2>
+            <p data-i18n="settlement.desc">
               התאמה מטושטשת של שמות יישובים לאזורי אזעקה, עם פלט
               Excel צבוע ו-RTL.
             </p>
           </div>
-          <span class="tag">בקרוב</span>
+          <span class="tag" data-i18n="status.soon">בקרוב</span>
         </div>
 
         <div class="tool coming">
           <div class="icon">📊</div>
           <div>
-            <h2>Survey Dashboard</h2>
-            <p>
+            <h2 data-i18n="survey.title">Survey Dashboard</h2>
+            <p data-i18n="survey.desc">
               דשבורד Streamlit לניתוח סקרים: Likert, מפת חום מחוזות,
               ופילוח דמוגרפי.
             </p>
           </div>
-          <span class="tag">בקרוב</span>
+          <span class="tag" data-i18n="status.soon">בקרוב</span>
         </div>
       </div>
 
@@ -223,8 +261,112 @@
           &middot;
           <a href="mailto:keshet.noam@gmail.com">keshet.noam@gmail.com</a>
         </div>
-        <div>פרטיות: כל הכלים פועלים בדפדפן שלך</div>
+        <div data-i18n="privacy">פרטיות: כל הכלים פועלים בדפדפן שלך</div>
       </footer>
     </div>
+
+    <script>
+      (function () {
+        const I18N = {
+          he: {
+            title: "הכלים של נעם",
+            tagline: "אוסף כלים ואפליקציות לניתוח נתונים, סקרים, ודוחות בעברית",
+            "report.title": "בונה דוחות",
+            "report.desc":
+              "עורך דוחות בעברית מבוסס בלוקים. תומך בגרפים, טבלאות, מפות, סקרי Likert וייצוא ל-HTML/PDF/Word.",
+            "pptx.title": "עורך גרפים ל-PPTX",
+            "pptx.desc":
+              "עריכה של גרפים בתוך קבצי PowerPoint (.pptx) — עדכון נתונים, תוויות וסגנונות בממשק מבוסס דפדפן.",
+            "oref.title": "ניטור התרעות פיקוד העורף",
+            "oref.desc":
+              "דאשבורד עם 157,000+ התרעות היסטוריות מ-2019, עדכון חי מ-API של פיקוד העורף, סינון לפי יישוב/תאריך/סוג התרעה, מפה אינטראקטיבית וייצוא Excel.",
+            "settlement.title": "Settlement Matcher",
+            "settlement.desc":
+              "התאמה מטושטשת של שמות יישובים לאזורי אזעקה, עם פלט Excel צבוע ו-RTL.",
+            "survey.title": "Survey Dashboard",
+            "survey.desc":
+              "דשבורד Streamlit לניתוח סקרים: Likert, מפת חום מחוזות, ופילוח דמוגרפי.",
+            "status.live": "חי",
+            "status.soon": "בקרוב",
+            privacy: "פרטיות: כל הכלים פועלים בדפדפן שלך",
+            pageTitle: "הכלים של נעם",
+            metaDesc: "אוסף כלים ואפליקציות של נעם קשת",
+          },
+          en: {
+            title: "Noam's Tools",
+            tagline:
+              "A collection of tools and apps for data analysis, surveys, and reports — with Hebrew support.",
+            "report.title": "Report Builder",
+            "report.desc":
+              "Block-based report editor with Hebrew support. Charts, tables, maps, Likert surveys, and export to HTML/PDF/Word.",
+            "pptx.title": "PPTX Chart Editor",
+            "pptx.desc":
+              "Edit charts inside PowerPoint (.pptx) files — update data, labels, and styling in a browser-based interface.",
+            "oref.title": "Home Front Command Alerts Monitor",
+            "oref.desc":
+              "Dashboard with 157,000+ historical alerts since 2019, live updates from the Home Front Command API, filtering by locality/date/alert type, interactive map, and Excel export.",
+            "settlement.title": "Settlement Matcher",
+            "settlement.desc":
+              "Fuzzy-match Hebrew settlement names to alert zones, with color-coded RTL Excel output.",
+            "survey.title": "Survey Dashboard",
+            "survey.desc":
+              "Streamlit dashboard for survey analysis: Likert scales, district heatmaps, and demographic segmentation.",
+            "status.live": "Live",
+            "status.soon": "Coming Soon",
+            privacy: "Privacy: all tools run locally in your browser.",
+            pageTitle: "Noam's Tools",
+            metaDesc: "A collection of tools and apps by Noam Keshet",
+          },
+        };
+
+        const STORAGE_KEY = "tools-hub-lang";
+
+        function detectInitialLang() {
+          try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored === "he" || stored === "en") return stored;
+          } catch (_) {}
+          const nav = (navigator.language || "he").toLowerCase();
+          return nav.startsWith("he") ? "he" : "en";
+        }
+
+        function applyLang(lang) {
+          const dict = I18N[lang] || I18N.he;
+          document.documentElement.lang = lang;
+          document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
+
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            if (dict[key] != null) el.textContent = dict[key];
+          });
+
+          if (dict.pageTitle) document.title = dict.pageTitle;
+          const metaDesc = document.querySelector('meta[name="description"]');
+          const ogDesc = document.querySelector('meta[property="og:description"]');
+          const ogTitle = document.querySelector('meta[property="og:title"]');
+          if (metaDesc && dict.metaDesc) metaDesc.setAttribute("content", dict.metaDesc);
+          if (ogDesc && dict.metaDesc) ogDesc.setAttribute("content", dict.metaDesc);
+          if (ogTitle && dict.pageTitle) ogTitle.setAttribute("content", dict.pageTitle);
+
+          document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+            const isActive = btn.getAttribute("data-lang") === lang;
+            btn.classList.toggle("active", isActive);
+            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+
+          try {
+            localStorage.setItem(STORAGE_KEY, lang);
+          } catch (_) {}
+        }
+
+        document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            applyLang(btn.getAttribute("data-lang"));
+          });
+        });
+
+        applyLang(detectInitialLang());
+      })();
+    </script>
   </body>
 </html>
