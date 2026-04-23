@@ -1,11 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/",
       "has": [{ "type": "host", "value": "pptx-builder.noamkeshet.com" }],
-      "destination": "/pptx.html"
+      "destination": "/pptx",
+      "permanent": false
     }
   ]
 }
