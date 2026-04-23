@@ -1,4 +1,11 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "pptx-builder.noamkeshet.com" }],
+      "destination": "/pptx.html"
+    }
+  ]
 }
