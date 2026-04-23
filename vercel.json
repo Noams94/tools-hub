@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "pptx-builder.noamkeshet.com" }],
       "destination": "/pptx.html"
     }
