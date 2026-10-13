@@ -240,17 +240,29 @@
           <span class="tag" data-i18n="status.live">חי</span>
         </a>
 
-        <div class="tool coming">
-          <div class="icon">🗺️</div>
+        <a class="tool live" href="https://survey-platform.noamkeshet.com">
+          <div class="icon">📝</div>
           <div>
-            <h2 data-i18n="settlement.title">Settlement Matcher</h2>
-            <p data-i18n="settlement.desc">
-              התאמה מטושטשת של שמות יישובים לאזורי אזעקה, עם פלט
-              Excel צבוע ו-RTL.
+            <h2 data-i18n="surveyplatform.title">פלטפורמת סקרים</h2>
+            <p data-i18n="surveyplatform.desc">
+              בנייה, הפצה וניתוח של סקרים בעברית — Likert, NPS,
+              שאלות פתוחות, תצוגת תוצאות בזמן אמת וייצוא לאקסל.
             </p>
           </div>
-          <span class="tag" data-i18n="status.soon">בקרוב</span>
-        </div>
+          <span class="tag" data-i18n="status.live">חי</span>
+        </a>
+
+        <a class="tool live" href="https://noamkeshet.com/he/assessment" data-href-lang="https://noamkeshet.com/{lang}/assessment">
+          <div class="icon">🧠</div>
+          <div>
+            <h2 data-i18n="leadership.title">שאלון אישיות מנהיגותית</h2>
+            <p data-i18n="leadership.desc">
+              שאלון מאומת בעברית מתוך מחקר דוקטורט עם 1,000+ משתתפים —
+              ניקוד אוטומטי, השוואה למנהיגים בשלושה מגזרים ודוח PDF אישי.
+            </p>
+          </div>
+          <span class="tag" data-i18n="status.live">חי</span>
+        </a>
 
         <div class="tool coming">
           <div class="icon">📊</div>
@@ -296,9 +308,12 @@
             "datagovil.title": "נתוני ממשל פתוח",
             "datagovil.desc":
               "חיפוש והורדה של מאגרי נתונים מ-data.gov.il — סינון לפי ארגון, תגיות ופורמט, תצוגה מקדימה של טבלאות, וייצוא ל-CSV / Excel / JSON.",
-            "settlement.title": "Settlement Matcher",
-            "settlement.desc":
-              "התאמה מטושטשת של שמות יישובים לאזורי אזעקה, עם פלט Excel צבוע ו-RTL.",
+            "surveyplatform.title": "פלטפורמת סקרים",
+            "surveyplatform.desc":
+              "בנייה, הפצה וניתוח של סקרים בעברית — Likert, NPS, שאלות פתוחות, תצוגת תוצאות בזמן אמת וייצוא לאקסל.",
+            "leadership.title": "שאלון אישיות מנהיגותית",
+            "leadership.desc":
+              "שאלון מאומת בעברית מתוך מחקר דוקטורט עם 1,000+ משתתפים — ניקוד אוטומטי, השוואה למנהיגים בשלושה מגזרים ודוח PDF אישי.",
             "survey.title": "Survey Dashboard",
             "survey.desc":
               "דשבורד Streamlit לניתוח סקרים: Likert, מפת חום מחוזות, ופילוח דמוגרפי.",
@@ -324,9 +339,12 @@
             "datagovil.title": "Open Government Data",
             "datagovil.desc":
               "Search and download datasets from data.gov.il — filter by organization, tags, and format, preview tables, and export to CSV / Excel / JSON.",
-            "settlement.title": "Settlement Matcher",
-            "settlement.desc":
-              "Fuzzy-match Hebrew settlement names to alert zones, with color-coded RTL Excel output.",
+            "surveyplatform.title": "Survey Platform",
+            "surveyplatform.desc":
+              "Build, distribute, and analyze Hebrew surveys — Likert, NPS, open-ended questions, real-time results, and Excel export.",
+            "leadership.title": "Leadership Personality Assessment",
+            "leadership.desc":
+              "A validated Hebrew questionnaire from PhD research with 1,000+ participants — automatic scoring, comparison with leaders in three sectors, and a personal PDF report.",
             "survey.title": "Survey Dashboard",
             "survey.desc":
               "Streamlit dashboard for survey analysis: Likert scales, district heatmaps, and demographic segmentation.",
@@ -357,6 +375,11 @@
           document.querySelectorAll("[data-i18n]").forEach((el) => {
             const key = el.getAttribute("data-i18n");
             if (dict[key] != null) el.textContent = dict[key];
+          });
+
+          // Links into locale-prefixed sites follow the selected language.
+          document.querySelectorAll("[data-href-lang]").forEach((el) => {
+            el.setAttribute("href", el.getAttribute("data-href-lang").replace("{lang}", lang));
           });
 
           if (dict.pageTitle) document.title = dict.pageTitle;
